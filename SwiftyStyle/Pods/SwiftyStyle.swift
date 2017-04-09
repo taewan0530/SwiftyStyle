@@ -12,10 +12,9 @@ import UIKit
 
 @objc
 public protocol SwiftyStyleable {
-    @objc optional static func swiftyStyle(update view: UIView?, type: String, json: [String: Any])
+    @objc optional static func swiftyStyle(update type: String, view: UIView, json: [String: Any])
     @objc optional static func swiftyStyle(color name: String?) -> UIColor?
-    @objc optional static func swiftyStyle(size name: String?) -> NSNumber?
-    
+    @objc optional static func swiftyStyle(number name: String?) -> NSNumber?
 }
 
 extension UIView {
@@ -31,8 +30,10 @@ extension UIView {
     }
 }
 
-open class SwiftyStyle {
-    static var styeable: SwiftyStyleable.Type? {
+final class SwiftyStyle {
+    public static var isUseDefaultStyle: Bool = true
+    
+    static var customStyle: SwiftyStyleable.Type? {
         return (self as Any) as? SwiftyStyleable.Type
     }
     
@@ -47,23 +48,26 @@ open class SwiftyStyle {
         json.forEach { (key: String, value: Any) in
             let json: [String: Any] = value as? [String: Any] ?? [:]
             
-            switch key {
-            case "font":
-                setFont(view, json: json)
-            case "text":
-                setText(view, json: json)
-            case "background", "bg":
-                setBackground(view, json: json)
-            case "border":
-                setBorder(view, json: json)
-            case "tint":
-                setTint(view, json: json)
-            default:
-                break
+            if isUseDefaultStyle {
+                switch key {
+                case "font":
+                    setFont(view, json: json)
+                case "text":
+                    setText(view, json: json)
+                case "background", "bg":
+                    setBackground(view, json: json)
+                case "border":
+                    setBorder(view, json: json)
+                case "tint":
+                    setTint(view, json: json)
+                case "shadow":
+                    setShadow(view, json: json)
+                default:
+                    break
+                }
             }
             
-            styeable?.swiftyStyle?(update: view, type: key, json: json)
-            
+            customStyle?.swiftyStyle?(update: key, view: view, json: json)
         }//forEatch
         
     }
@@ -71,44 +75,58 @@ open class SwiftyStyle {
 
 extension SwiftyStyle {
     
-    open static func setFont(_ view: UIView?, json: [String: Any]) {
+    static func setTint(_ view: UIView, json: [String: Any]) {
         let object = Object(json)
-        setFont(view, fontSize: object.getSize("size"))
-    }
-    
-    open static func setText(_ view: UIView?, json: [String: Any]) {
-        let object = Object(json)
-        setText(view, color: object.getColor("color"))
-    }
-    
-    open static func setBackground(_ view: UIView?, json: [String: Any]) {
-        let object = Object(json)
-        setBackground(view, color: object.getColor("color"))
-    }
-    
-    open static func setBorder(_ view: UIView?, json: [String: Any]) {
-        let object = Object(json)
-        let color = object.getColor("color")
-        let width = object.getSize("width")
-        let radius = object.getSize("radius")
-        view?.drawBorder(width ?? 0, color: color, cornerRadius: radius)
-    }
-    
-    open static func setTint(_ view: UIView?, json: [String: Any]) {
-        let object = Object(json)
-        if let color = object.getColor("color") {
-            view?.tintColor = color
+        if let color = object["color"].color {
+            view.tintColor = color
         }
+    }
+    
+    static func setFont(_ view: UIView, json: [String: Any]) {
+        let object = Object(json)
+        let size = object["size"].float
+        setFont(view, fontSize: size)
+    }
+    
+    static func setText(_ view: UIView, json: [String: Any]) {
+        let object = Object(json)
+        let color = object["color"].color
+        setText(view, color: color)
+    }
+    
+    static func setBackground(_ view: UIView, json: [String: Any]) {
+        let object = Object(json)
+        let color = object["color"].color
+        setBackground(view, color: color)
+    }
+    
+    static func setBorder(_ view: UIView, json: [String: Any]) {
+        let object = Object(json)
+        let color = object["color"].color
+        let width = object["width"].float
+        let radius = object["radius"].float
+        view.drawBorder(width ?? 0, color: color, cornerRadius: radius)
+    }
+    
+    static func setShadow(_ view: UIView, json: [String: Any]) {
+        let object = Object(json)
+        let x = object["offset"]["x"].float ?? view.layer.shadowOffset.width
+        let y = object["offset"]["y"].float ?? view.layer.shadowOffset.height
+        let offset = CGSize(width: x, height: y)
+        
+        let color = object["color"].color
+        let radius = object["radius"].float
+        let opacity = object["opacity"].float
+        view.drawShadow(offset, color: color, radius: radius, opacity: opacity)
     }
 }
 
 
-
 extension SwiftyStyle {
-    
-    open static func setFont(_ view: UIView?, fontSize: CGFloat?) {
-        guard let target = view, let fontSize = fontSize else { return }
-        switch target {
+    static func setFont(_ view: UIView?, fontSize: CGFloat?) {
+        guard let view = view, let fontSize = fontSize else { return }
+        
+        switch view {
         case let label as UILabel:
             label.font = label.font.withSize(fontSize)
         case let button as UIButton:
@@ -121,9 +139,9 @@ extension SwiftyStyle {
         }
     }
     
-    open static func setText(_ view: UIView?, color: UIColor?) {
-        guard let target = view, let color = color else { return }
-        switch target {
+    static func setText(_ view: UIView, color: UIColor?) {
+        guard let color = color else { return }
+        switch view {
         case let label as UILabel:
             label.textColor = color
         case let button as UIButton:
@@ -136,28 +154,21 @@ extension SwiftyStyle {
         }
     }
     
-    open static func setBackground(_ view: UIView?, color: UIColor?) {
-        guard let target = view, let color = color else { return }
-        switch target {
+    static func setBackground(_ view: UIView, color: UIColor?) {
+        guard let color = color else { return }
+        switch view {
         case let button as UIButton:
             button.setBackgroundImage(.image(by: color), for: .normal)
         default:
-            target.backgroundColor = color
+            view.backgroundColor = color
         }
     }
     
-    
-    open static func setBorder(_ view: UIView?,
-                              width: CGFloat?,
-                              color: UIColor?,
-                              radius: CGFloat?) {
-        view?.drawBorder(width ?? 0, color: color, cornerRadius: radius)
-    }
-    
-    open static func setTint(_ view: UIView?, color: UIColor?) {
-        if let color = color {
-            view?.tintColor = color
-        }
+    static func setBorder(_ view: UIView,
+                          width: CGFloat?,
+                          color: UIColor?,
+                          radius: CGFloat?) {
+        view.drawBorder(width ?? 0, color: color, cornerRadius: radius)
     }
 }
 
@@ -181,7 +192,7 @@ fileprivate extension SwiftyStyle {
         style = style.replacingOccurrences(of: ")", with: "}")
         style = "{\(style)}"
         
-        //영어 찾기 
+        //숫자가 아닌 영어 찾기
         let regex = try NSRegularExpression(pattern: "([a-zA-Z]+)\\w*",
                                             options: [.caseInsensitive])
         
@@ -201,40 +212,3 @@ fileprivate extension SwiftyStyle {
 }
 
 
-fileprivate extension UIView {
-    
-    func drawBorder(_ borderWidth: CGFloat? = nil,
-                    color: UIColor? = nil,
-                    cornerRadius: CGFloat? = nil) {
-        
-        if let borderWidth = borderWidth {
-            layer.borderWidth = borderWidth
-        }
-        if let color = color {
-            layer.borderColor = color.cgColor
-        }
-        if let cornerRadius = cornerRadius {
-            layer.cornerRadius = cornerRadius
-        }
-    }
-}
-
-
-
-fileprivate extension UIImage {
-    static func image(by color: UIColor) -> UIImage {
-        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
-        UIGraphicsBeginImageContext(rect.size)
-        
-        if let context = UIGraphicsGetCurrentContext() {
-            context.setFillColor(color.cgColor)
-            context.fill(rect)
-            if let image = UIGraphicsGetImageFromCurrentImageContext() {
-                UIGraphicsEndImageContext()
-                return image
-            }
-        }
-        
-        return UIImage()
-    }
-}
