@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		326C23311E977FD300089386 /* SwiftyStyle+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326C232D1E977FD300089386 /* SwiftyStyle+Color.swift */; };
-		326C23321E977FD300089386 /* SwiftyStyle+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326C232E1E977FD300089386 /* SwiftyStyle+Size.swift */; };
-		326C23331E977FD300089386 /* SwiftyStyle+Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326C232F1E977FD300089386 /* SwiftyStyle+Object.swift */; };
+		122F75CB1E9A0FC10097700B /* UIImage+SwiftStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F75C51E9A0FC10097700B /* UIImage+SwiftStyle.swift */; };
+		122F75CC1E9A0FC10097700B /* UIView+SwiftyStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F75C61E9A0FC10097700B /* UIView+SwiftyStyle.swift */; };
+		122F75CE1E9A0FC10097700B /* SwiftyStyle+Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F75C91E9A0FC10097700B /* SwiftyStyle+Object.swift */; };
+		122F75D11E9A127A0097700B /* Designable+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F75D01E9A127A0097700B /* Designable+View.swift */; };
+		122F75D31E9A12AA0097700B /* SwiftyStyleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F75D21E9A12AA0097700B /* SwiftyStyleConfig.swift */; };
 		326C23341E977FD300089386 /* SwiftyStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326C23301E977FD300089386 /* SwiftyStyle.swift */; };
 		32E18AF81E96225D00111C7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E18AF71E96225D00111C7C /* AppDelegate.swift */; };
 		32E18AFA1E96225D00111C7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E18AF91E96225D00111C7C /* ViewController.swift */; };
@@ -19,9 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		326C232D1E977FD300089386 /* SwiftyStyle+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftyStyle+Color.swift"; sourceTree = "<group>"; };
-		326C232E1E977FD300089386 /* SwiftyStyle+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftyStyle+Size.swift"; sourceTree = "<group>"; };
-		326C232F1E977FD300089386 /* SwiftyStyle+Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftyStyle+Object.swift"; sourceTree = "<group>"; };
+		122F75C51E9A0FC10097700B /* UIImage+SwiftStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftStyle.swift"; sourceTree = "<group>"; };
+		122F75C61E9A0FC10097700B /* UIView+SwiftyStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SwiftyStyle.swift"; sourceTree = "<group>"; };
+		122F75C91E9A0FC10097700B /* SwiftyStyle+Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftyStyle+Object.swift"; sourceTree = "<group>"; };
+		122F75D01E9A127A0097700B /* Designable+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Designable+View.swift"; sourceTree = "<group>"; };
+		122F75D21E9A12AA0097700B /* SwiftyStyleConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyStyleConfig.swift; sourceTree = "<group>"; };
 		326C23301E977FD300089386 /* SwiftyStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyStyle.swift; sourceTree = "<group>"; };
 		32E18AF41E96225D00111C7C /* SwiftyStyle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyStyle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32E18AF71E96225D00111C7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,12 +47,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		122F75C41E9A0FC10097700B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				122F75C51E9A0FC10097700B /* UIImage+SwiftStyle.swift */,
+				122F75C61E9A0FC10097700B /* UIView+SwiftyStyle.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		122F75C71E9A0FC10097700B /* Utile */ = {
+			isa = PBXGroup;
+			children = (
+				122F75C91E9A0FC10097700B /* SwiftyStyle+Object.swift */,
+			);
+			path = Utile;
+			sourceTree = "<group>";
+		};
 		326C232C1E977FD300089386 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				326C232D1E977FD300089386 /* SwiftyStyle+Color.swift */,
-				326C232E1E977FD300089386 /* SwiftyStyle+Size.swift */,
-				326C232F1E977FD300089386 /* SwiftyStyle+Object.swift */,
+				122F75C41E9A0FC10097700B /* Extension */,
+				122F75C71E9A0FC10097700B /* Utile */,
 				326C23301E977FD300089386 /* SwiftyStyle.swift */,
 			);
 			path = Pods;
@@ -76,6 +96,8 @@
 				326C232C1E977FD300089386 /* Pods */,
 				32E18AF71E96225D00111C7C /* AppDelegate.swift */,
 				32E18AF91E96225D00111C7C /* ViewController.swift */,
+				122F75D21E9A12AA0097700B /* SwiftyStyleConfig.swift */,
+				122F75D01E9A127A0097700B /* Designable+View.swift */,
 				32E18AFB1E96225D00111C7C /* Main.storyboard */,
 				32E18AFE1E96225D00111C7C /* Assets.xcassets */,
 				32E18B001E96225D00111C7C /* LaunchScreen.storyboard */,
@@ -157,11 +179,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				326C23311E977FD300089386 /* SwiftyStyle+Color.swift in Sources */,
 				326C23341E977FD300089386 /* SwiftyStyle.swift in Sources */,
+				122F75D11E9A127A0097700B /* Designable+View.swift in Sources */,
+				122F75D31E9A12AA0097700B /* SwiftyStyleConfig.swift in Sources */,
 				32E18AFA1E96225D00111C7C /* ViewController.swift in Sources */,
-				326C23321E977FD300089386 /* SwiftyStyle+Size.swift in Sources */,
-				326C23331E977FD300089386 /* SwiftyStyle+Object.swift in Sources */,
+				122F75CB1E9A0FC10097700B /* UIImage+SwiftStyle.swift in Sources */,
+				122F75CC1E9A0FC10097700B /* UIView+SwiftyStyle.swift in Sources */,
+				122F75CE1E9A0FC10097700B /* SwiftyStyle+Object.swift in Sources */,
 				32E18AF81E96225D00111C7C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

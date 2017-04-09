@@ -29,7 +29,7 @@
                                     <constraint firstAttribute="height" constant="128" id="P0a-pr-eVM"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="swiftyStyle" value="background(color: blue), transform(y: 7)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="swiftyStyle" value="background(color: blue), shadow(offset: {x: 0, y: -10}, color: blue)"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfP-A2-D7L" customClass="CustomView" customModule="SwiftyStyle" customModuleProvider="target">
@@ -40,7 +40,7 @@
                                     <constraint firstAttribute="height" constant="128" id="j8s-PK-OwP"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="swiftyStyle" value="bg(color: blue), border(width: 20, color: white, radius: love), transform(angle: love)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="swiftyStyle" value="bg(color: blue), border(width: 20, color: white, radius: 20)"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBF-D1-5g6" customClass="CustomLabel" customModule="SwiftyStyle" customModuleProvider="target">
@@ -53,7 +53,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anf-mt-mYq" customClass="CustomButton" customModule="SwiftyStyle" customModuleProvider="target">
-                                <rect key="frame" x="73" y="381" width="229" height="96"/>
+                                <rect key="frame" x="101" y="381" width="173" height="72"/>
                                 <state key="normal" title="Button"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="swiftyStyle" value="bg(color: blue), font(size: love), text(color: yellow)"/>
@@ -72,6 +72,9 @@
                             <constraint firstItem="rfP-A2-D7L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hWD-wH-CJA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="customView" destination="3gi-dx-7QQ" id="Nfp-8y-VXM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
