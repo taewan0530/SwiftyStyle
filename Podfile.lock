@@ -1,0 +1,16 @@
+PODS:
+  - SwiftyStyle (0.0.1)
+
+DEPENDENCIES:
+  - SwiftyStyle (from `./`)
+
+EXTERNAL SOURCES:
+  SwiftyStyle:
+    :path: ./
+
+SPEC CHECKSUMS:
+  SwiftyStyle: a501824394bb53eb8dc9ad3b2c682ad7c6ff541f
+
+PODFILE CHECKSUM: 40f7151bf7f64ea87d81e07f9a0939279cf98105
+
+COCOAPODS: 1.0.1

@@ -67,7 +67,7 @@ extension SwiftyStyle.Object {
     public static func color(by name: String?) -> UIColor? {
         guard let name = name else { return nil }
         
-        if let custom = SwiftyStyle.customStyle,
+        if let custom = SwiftyStyle.styleConfig,
             let color = custom.swiftyStyle?(color: name) {
             return color
         }
@@ -116,7 +116,7 @@ extension SwiftyStyle.Object {
     public static func float(by name: String?) -> CGFloat? {
         guard let name = name else { return nil }
         
-        if let custom = SwiftyStyle.customStyle,
+        if let custom = SwiftyStyle.styleConfig,
             let number = custom.swiftyStyle?(number: name) {
             return CGFloat(number.floatValue)
         }

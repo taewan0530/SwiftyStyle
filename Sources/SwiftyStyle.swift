@@ -11,8 +11,8 @@ import UIKit
 
 
 @objc
-public protocol SwiftyStyleable {
-    @objc optional static func swiftyStyle(update type: String, view: UIView, json: [String: Any])
+public protocol SwiftyStyleConfigurable {
+    @objc optional static func swiftyStyle(config type: String, view: UIView, json: [String: Any])
     @objc optional static func swiftyStyle(color name: String?) -> UIColor?
     @objc optional static func swiftyStyle(number name: String?) -> NSNumber?
 }
@@ -30,11 +30,11 @@ extension UIView {
     }
 }
 
-final class SwiftyStyle {
+final public class SwiftyStyle {
     public static var isUseDefaultStyle: Bool = true
     
-    static var customStyle: SwiftyStyleable.Type? {
-        return (self as Any) as? SwiftyStyleable.Type
+    static var styleConfig: SwiftyStyleConfigurable.Type? {
+        return (self as Any) as? SwiftyStyleConfigurable.Type
     }
     
     static func generator(_ view: UIView, style: String) {
@@ -58,8 +58,6 @@ final class SwiftyStyle {
                     setBackground(view, json: json)
                 case "border":
                     setBorder(view, json: json)
-                case "tint":
-                    setTint(view, json: json)
                 case "shadow":
                     setShadow(view, json: json)
                 default:
@@ -67,20 +65,13 @@ final class SwiftyStyle {
                 }
             }
             
-            customStyle?.swiftyStyle?(update: key, view: view, json: json)
+            styleConfig?.swiftyStyle?(config: key, view: view, json: json)
         }//forEatch
         
     }
 }
 
 extension SwiftyStyle {
-    
-    static func setTint(_ view: UIView, json: [String: Any]) {
-        let object = Object(json)
-        if let color = object["color"].color {
-            view.tintColor = color
-        }
-    }
     
     static func setFont(_ view: UIView, json: [String: Any]) {
         let object = Object(json)
@@ -125,7 +116,6 @@ extension SwiftyStyle {
 extension SwiftyStyle {
     static func setFont(_ view: UIView?, fontSize: CGFloat?) {
         guard let view = view, let fontSize = fontSize else { return }
-        
         switch view {
         case let label as UILabel:
             label.font = label.font.withSize(fontSize)
