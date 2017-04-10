@@ -65,38 +65,6 @@
             endingLineNumber = "20"
             landmarkName = "by(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static SwiftyStyle.SwiftyStyle.ColorStyle.by (Swift.Optional&lt;Swift.String&gt;) -&gt; Swift.Optional&lt;__ObjC.UIColor&gt;"
-                  moduleName = "SwiftyStyle"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kimtaewan/Documents/taewan/kif/SwiftyStyle/SwiftyStyle/SwiftyStyle+Color.swift"
-                  timestampString = "513238616.378659"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "275">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static SwiftyStyle.SwiftyStyle.ColorStyle.by (Swift.Optional&lt;Swift.String&gt;) -&gt; Swift.Optional&lt;__ObjC.UIColor&gt;"
-                  moduleName = "SwiftyStyle"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kimtaewan/Documents/taewan/kif/SwiftyStyle/SwiftyStyle/SwiftyStyle+Color.swift"
-                  timestampString = "513238616.380666"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "705">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -113,38 +81,6 @@
             endingLineNumber = "19"
             landmarkName = "by(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static SwiftyStyle.SwiftyStyle.ColorStyle.by (Swift.Optional&lt;Swift.String&gt;) -&gt; Swift.Optional&lt;__ObjC.UIColor&gt;"
-                  moduleName = "SwiftyStyle"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kimtaewan/Documents/taewan/kif/SwiftyStyle/SwiftyStyle/SwiftyStyle+Color.swift"
-                  timestampString = "513238616.385442"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "193">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static SwiftyStyle.SwiftyStyle.ColorStyle.by (Swift.Optional&lt;Swift.String&gt;) -&gt; Swift.Optional&lt;__ObjC.UIColor&gt;"
-                  moduleName = "SwiftyStyle"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kimtaewan/Documents/taewan/kif/SwiftyStyle/SwiftyStyle/SwiftyStyle+Color.swift"
-                  timestampString = "513238616.387464"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "256">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -177,38 +113,6 @@
             endingLineNumber = "18"
             landmarkName = "by(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static SwiftyStyle.SwiftyStyle.ColorStyle.by (Swift.Optional&lt;Swift.String&gt;) -&gt; Swift.Optional&lt;__ObjC.UIColor&gt;"
-                  moduleName = "SwiftyStyle"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kimtaewan/Documents/taewan/kif/SwiftyStyle/SwiftyStyle/SwiftyStyle+Color.swift"
-                  timestampString = "513238616.395803"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "193">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static SwiftyStyle.SwiftyStyle.ColorStyle.by (Swift.Optional&lt;Swift.String&gt;) -&gt; Swift.Optional&lt;__ObjC.UIColor&gt;"
-                  moduleName = "SwiftyStyle"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kimtaewan/Documents/taewan/kif/SwiftyStyle/SwiftyStyle/SwiftyStyle+Color.swift"
-                  timestampString = "513238616.397776"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "256">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

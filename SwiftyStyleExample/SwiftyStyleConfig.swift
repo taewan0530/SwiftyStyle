@@ -57,6 +57,8 @@ extension SwiftyStyle: SwiftyStyleConfigurable {
     public static func swiftyStyle(color name: String?) -> UIColor? {
         if name == "blue" {
             return UIColor(red: 42.0 / 255.0, green: 125.0 / 255.0, blue: 226.0 / 255.0, alpha: 1.0)
+        } else if name == "grey" {
+            return  UIColor(red: 152.0 / 255.0, green: 163.0 / 255.0, blue: 173.0 / 255.0, alpha: 1.0)
         }
         return nil
     }
